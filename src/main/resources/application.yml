@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: reactiveaccount-service
+        uri: lb://reactiveaccount-service
+        predicates:
+        - Path=/accounts/**
+        filters:
+        #- StripPrefix=1
+        - RewritePath=/accounts/(?<segment>.*), /$\{segment}

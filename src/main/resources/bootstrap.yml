@@ -1,0 +1,24 @@
+# Spring properties
+spring:
+  application:
+    name: springgateway-service
+  freemarker:
+    enabled: true
+  cloud:
+    gateway: 
+      discovery: 
+        locator: 
+          enabled: true
+#Eureka
+# Discovery Server Access
+#  1. Define URL of registration server (defaultZone)
+#  2. Reduce lease-renewal time so processes register more quickly
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+#Server
+server:
+  port: 8081
